@@ -42,6 +42,7 @@ public class Player {
 	
 	public void Damage(int damage) {
 		
+		
 		life =  life - damage;
 		if(life < 0) {
 			life = 0;
@@ -70,52 +71,39 @@ public class Player {
 			System.out.println("4 - Earthwall");
 			option = Integer.parseInt(sc.nextLine());
 			
-			
-				if (option == 1) {
-					if(mana >= 20) {
-						mana = mana - 20;
-						System.out.println("A giant fireball is fire!");
-						setMana(mana);
-					} else {
-						System.out.println("Mana insufficient");
-					}
-				}
-			
-				else if (option == 2) {
-					if(mana >= 50) {
+				switch(option) {
+				
+				case 1:
+					mana = mana -20;
+					System.out.println("A giant fireball is fire!");
+					setMana(mana);
+				
+				case 2:
 					mana = mana - 50;
 					System.out.println("A massive flame tower appear, você usou: "+ mana + " de mana");
 					setMana(mana);
-					} else {
-						System.out.println("Mana insufficient");
-					}
+					break;
+					
+				case 3:
+					mana = mana - 15;
+					System.out.println("Multiple water jets are formed and fired");
+					setMana(mana);
+					break;
+					
+				case 4:
+					mana = mana - 30;
+					System.out.println("A 5 meter earthwall rise in front of you");
+					setMana(mana);
+					break;
+					
+				default:
+					System.out.println("Mana insufficient");
+					break;
 				}
-			
-				else if (option == 3) {
-					if(mana >= 15) {
-						mana = mana - 15;
-						System.out.println("Multiple water jets are formed and fired");
-						setMana(mana);
-					} else {
-						System.out.println("Mana insufficient");
-					}
-				}
-			
-				else if (option == 4) {
-					if(mana >= 30) {
-						mana = mana - 30;
-						System.out.println("A 5 meter earthwall rise in front of you");
-						setMana(mana);
-					} else {
-						System.out.println("Mana insufficient");
-					}
-				} else {
-					System.out.println("Choose a valid option");
-				}
-			} else {
-			System.out.println("Out of mana!");
-			}
+		} else {
+			System.out.println("Insuficient mana!");
 		}
+				}
 	
 	
 	public void Status() {

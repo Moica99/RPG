@@ -12,51 +12,59 @@ public class Main {
 		
 		int option = 0;
 		
-		while(option != 4) {
+		while(option!=4) {
+		System.out.println("\n...Menu...");
+		System.out.println("1 - Attack");
+		System.out.println("2 - Take damage");
+		System.out.println("3 - Status");
+		System.out.println("4 - Exit");
+		option = Integer.parseInt(sc.nextLine());
+		
+		switch (option){
 			
-			System.out.println("\n...Menu...");
-			System.out.println("1 - Attack");
-			System.out.println("2 - Take damage");
-			System.out.println("3 - Status");
-			System.out.println("4 - Exit");
+		case 1:
+			int AT = 0;
 			
-			System.out.println("Choose a path: ");
-			option = Integer.parseInt(sc.nextLine());
+			System.out.println("Chosse a way to attack!");
+			System.out.println("1 - Fists or 2 - Magic?");
+			System.out.println("3 - Cancel attack");
+			AT = Integer.parseInt(sc.nextLine());
 			
-			if( option == 1) {
-				int AT = 0;
-				while(AT != 3) {
-				System.out.println("Chosse a way to attack!");
-				System.out.println("1 - Fists or 2 - Magic?");
-				System.out.println("3 - Cancel attack");
-				AT = Integer.parseInt(sc.nextLine());
+			switch (AT) {
+			case 1:
+				System.out.println("Hard punch!");
+				break;
+			case 2:
+				player.Magic(player.getMana());
+				break;
 				
-				if(AT == 1) {
-					System.out.println("Hard punch!");
-					
-				} else if(AT == 2){
-					
-					player.Magic(player.getMana());
-				} else if(AT == 3) {
-					System.out.println("Hum..Maybe not..");
-				} else {
-					System.out.println("Choose a valid option!");
-				}
+			case 3:
+				System.out.println("Hum..Maybe not..");
+				break;
 				
-				
-				}
-				
-			} else if(option == 2) {
-				player.Damage(20);
-			} else if(option == 3) {
-				player.Status();
-			} else if(option == 4) {
-				System.out.println("You are out.. For now!");
-			} else {
+			default:
 				System.out.println("Choose a valid option!");
+				break;			
 			}
 			
+		case 2:
+			player.Damage(20);
+			break;
+			
+		case 3:
+			player.Status();
+			break;
+		
+		case 4:
+			System.out.println("You are out.. For now!");
+			
+		default:
+			System.out.println("Choose a valid option!");
+			break;
+			
+			}
 		}
+
 		
 		sc.close();
 
